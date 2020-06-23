@@ -1,0 +1,1567 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- MDBootstrap Datatables  -->
+  <link href="{% static 'css/addons/datatables2.min.css' %}" rel="stylesheet">
+  <title>{% block title %}Malicious URL Detector{% endblock %}</title>
+</head>
+    
+<body>
+
+  <h2 class='mb-3'>Data Set</h2>
+<table id="dtBasicExample" class="table" width="100%">
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Status</th>
+      <th>Domain</th>
+      <th>Organisation</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
+      <th>Country</th>
+      <th>Email</th>
+      <th>Alexa Rank</th>
+      <th>Registrar</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>https://microsoftedge.microsoft.com/addons/category/productivity?hl=fr</td>
+      <td>Legitimate</td>
+      <td>25</td>
+      <td>MICROSOFT.COMmicrosoft.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Microsoft Corporation</td>
+      <td>One Microsoft Way</td>
+      <td>Redmond</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comadmin@domains.microsoftmsnhst@microsoft.comwhoisrequest@markmonitor.com</td>
+      <td>WA</td>
+      <td>98052</td>
+      <td>39:49.4</td>
+      </tr>
+      <tr>
+      <td>https://drive.google.com/drive/u/0/my-drive</td>
+      <td>Legitimate</td>
+      <td>1</td>
+      <td>GOOGLE.COM</td>
+      <td>MarkMonitor Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abusecomplaints@markmonitor.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>22:34.9</td>
+      </tr>
+      <tr>
+      <td>https://colab.research.google.com/drive/1fvnahpvlomym_p94wst4erls1z1x8uex?authuser=2</td>
+      <td>Legitimate</td>
+      <td>1</td>
+      <td>GOOGLE.COM</td>
+      <td>MarkMonitor Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abusecomplaints@markmonitor.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>23:26.4</td>
+      </tr>
+      <tr>
+      <td>https://accounts.google.com/signin/oauth/consent?authuser=1</td>
+      <td>Legitimate</td>
+      <td>1</td>
+      <td>GOOGLE.COM</td>
+      <td>MarkMonitor Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abusecomplaints@markmonitor.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>24:16.0</td>
+      </tr>
+      <tr>
+      <td>https://colab.research.google.com/drive/1fvnahpvlomym_p94wst4erls1z1x8uex?authuser=2</td>
+      <td>Legitimate</td>
+      <td>1</td>
+      <td>GOOGLE.COM</td>
+      <td>MarkMonitor Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abusecomplaints@markmonitor.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>24:38.8</td>
+      </tr>
+      <tr>
+      <td>https://uppward.sentinelprotocol.io/welcome/</td>
+      <td>Legitimate</td>
+      <td>1023783</td>
+      <td>SENTINELPROTOCOL.IOsentinelprotocol.io</td>
+      <td>GANDI SAS</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>42:09.7</td>
+      </tr>
+      <tr>
+      <td>https://mudv5.eu-gb.cf.appdomain.cloud/</td>
+      <td>Legitimate</td>
+      <td>141260</td>
+      <td>appdomain.cloud</td>
+      <td>CSC Corporate Domains Inc.</td>
+      <td>International Business Machines Corporation</td>
+      <td>None</td>
+      <td>None</td>
+      <td>us</td>
+      <td>domainabuse@cscglobal.com</td>
+      <td>NY</td>
+      <td>None</td>
+      <td>16:59.6</td>
+      </tr>
+      <tr>
+      <td>https://www.youtube.com/channel/uc4estxcpjk8cho7be8gj5nw</td>
+      <td>Legitimate</td>
+      <td>2</td>
+      <td>YOUTUBE.COMyoutube.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Google LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comwhoisrequest@markmonitor.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>38:40.2</td>
+      </tr>
+      <tr>
+      <td>https://romsmania.cc/roms/nintendo-ds</td>
+      <td>Legitimate</td>
+      <td>13562</td>
+      <td>ROMSMANIA.CC</td>
+      <td>Internet Domain Service BS Corp.</td>
+      <td>Whois Privacy Corp.</td>
+      <td>Ocean Centre Montagu Foreshore East Bay Street</td>
+      <td>Nassau</td>
+      <td>BS</td>
+      <td>abuse@internet.bsromsmania.cc-owner-qukx@customers.whoisprivacycorp.comromsmania.cc-admin-23ma@customers.whoisprivacycorp.comromsmania.cc-tech-jykx@customers.whoisprivacycorp.com</td>
+      <td>New Providence</td>
+      <td>None</td>
+      <td>09:07.2</td>
+      </tr>
+      <tr>
+      <td>https://www.youtube.com/playlist?list=pl01gecxwixuncipdbmanc5ayrgpc_orrw</td>
+      <td>Legitimate</td>
+      <td>2</td>
+      <td>YOUTUBE.COMyoutube.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Google LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comwhoisrequest@markmonitor.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>10:16.7</td>
+      </tr>
+      <tr>
+      <td>https://talosintelligence.com/ms_advisories</td>
+      <td>Legitimate</td>
+      <td>37130</td>
+      <td>TALOSINTELLIGENCE.COMtalosintelligence.com</td>
+      <td>GANDI SAS</td>
+      <td>Cisco Systems Inc.</td>
+      <td>63-65 boulevard Massena</td>
+      <td>Paris</td>
+      <td>FR</td>
+      <td>abuse@support.gandi.net4c4e62654df2b19374da4d2024341ea9-1812913@contact.gandi.net</td>
+      <td>Paris</td>
+      <td>75013</td>
+      <td>21:53.9</td>
+      </tr>
+      <tr>
+      <td>https://www.google.com</td>
+      <td>Legitimate</td>
+      <td>1</td>
+      <td>GOOGLE.COMgoogle.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Google LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comwhoisrequest@markmonitor.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>55:41.1</td>
+      </tr>
+      <tr>
+      <td>https://www.youtube.com/results?search_query=girls</td>
+      <td>Legitimate</td>
+      <td>2</td>
+      <td>YOUTUBE.COMyoutube.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Google LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comwhoisrequest@markmonitor.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>59:55.3</td>
+      </tr>
+      <tr>
+      <td>https://www.bing.com/</td>
+      <td>Legitimate</td>
+      <td>35</td>
+      <td>BING.COMbing.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Microsoft Corporation</td>
+      <td>One Microsoft Way</td>
+      <td>Redmond</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comdomains@microsoft.commsnhst@microsoft.comwhoisrequest@markmonitor.com</td>
+      <td>WA</td>
+      <td>98052</td>
+      <td>24:25.9</td>
+      </tr>
+      <tr>
+      <td>https://www.youtube.com/</td>
+      <td>Legitimate</td>
+      <td>2</td>
+      <td>YOUTUBE.COMyoutube.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Google LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comwhoisrequest@markmonitor.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>25:15.0</td>
+      </tr>
+      <tr>
+      <td>https://onedrive.live.com/edit.aspx?cid=daf3ec79562b130f</td>
+      <td>Legitimate</td>
+      <td>18</td>
+      <td>LIVE.COMlive.com</td>
+      <td>CSC CORPORATE DOMAINS INC.</td>
+      <td>Microsoft Corporation</td>
+      <td>None</td>
+      <td>Redmond</td>
+      <td>US</td>
+      <td>domainabuse@cscglobal.comdomains@microsoft.commsnhst@microsoft.com</td>
+      <td>WA</td>
+      <td>98052</td>
+      <td>04:22.3</td>
+      </tr>
+      <tr>
+      <td>https://microsoftedge.microsoft.com/addons/</td>
+      <td>Legitimate</td>
+      <td>25</td>
+      <td>MICROSOFT.COM</td>
+      <td>MarkMonitor Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abusecomplaints@markmonitor.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>07:52.6</td>
+      </tr>
+      <tr>
+      <td>https://app.checkaninvoice.com/manage/invoices?q=all</td>
+      <td>Legitimate</td>
+      <td>2328401</td>
+      <td>CHECKANINVOICE.COMcheckaninvoice.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>Domains By Proxy LLC</td>
+      <td>DomainsByProxy.com14455 N. Hayden Road</td>
+      <td>Scottsdale</td>
+      <td>US</td>
+      <td>abuse@godaddy.comcheckaninvoice.com@domainsbyproxy.com</td>
+      <td>Arizona</td>
+      <td>85260</td>
+      <td>13:57.3</td>
+      </tr>
+      <tr>
+      <td>http://saluti24.ru/paypapmobile/afd82de65876c3ad3e40453713daaaa1/b355f...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SALUTI24.RU</td>
+      <td>REGRU-RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>19:25.5</td>
+      </tr>
+      <tr>
+      <td>http://saathiyo.in/ach/notepure/uh/no_cap/fbg/office.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>saathiyo.in</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>None</td>
+      <td>Florida</td>
+      <td>None</td>
+      <td>19:35.8</td>
+      </tr>
+      <tr>
+      <td>https://www.gov.claimrebate2.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>CLAIMREBATE2.COMclaimrebate2.com</td>
+      <td>WEBCC</td>
+      <td>-</td>
+      <td>39 charisma street</td>
+      <td>London</td>
+      <td>GB</td>
+      <td>compliance_abuse@webnic.ccbigboistan@gmail.com</td>
+      <td>Barking and Dagenham</td>
+      <td>E4 4HM</td>
+      <td>19:54.7</td>
+      </tr>
+      <tr>
+      <td>https://fb.page-business-realtor.item4387567435.com/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ITEM4387567435.COMitem4387567435.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.comde1afd0b87074bf99352145a329a9e9f.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>20:20.2</td>
+      </tr>
+      <tr>
+      <td>https://paypal.miccosylvain.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MICCOSYLVAIN.COMmiccosylvain.com</td>
+      <td>NameSilo LLC</td>
+      <td>None</td>
+      <td>II PLATEAUX 7EME TRANCHE IM. NZI APT14</td>
+      <td>Abidjan</td>
+      <td>CI</td>
+      <td>abuse@namesilo.comjustethales@yahoo.fr</td>
+      <td>Lagunes</td>
+      <td>225</td>
+      <td>20:31.9</td>
+      </tr>
+      <tr>
+      <td>https://www.bcpzonasegurabeta.viabcp-e.xyz/.laka/inicias-sesion...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>VIABCP-E.XYZviabcp-e.xyz</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com64ec7ed7e6e84d79953202f6ddf89892.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>21:21.0</td>
+      </tr>
+      <tr>
+      <td>http://paypal.me.philmooreowens.com/paypal/www.paypal.com/ng/webapps/m...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>PHILMOOREOWENS.COMphilmooreowens.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com98e4070d6b774604be3f64705e747822.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>21:45.0</td>
+      </tr>
+      <tr>
+      <td>https://www.xuoyi.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>XUOYI.COMxuoyi.com</td>
+      <td>Alibaba Cloud Computing (Beijing) Co. Ltd.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CN</td>
+      <td>DomainAbuse@service.aliyun.com</td>
+      <td>he nan</td>
+      <td>None</td>
+      <td>21:53.9</td>
+      </tr>
+      <tr>
+      <td>http://namoridoss2entrega.com/desk/login.php?enc=543249910...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>NAMORIDOSS2ENTREGA.COMnamoridoss2entrega.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>BR</td>
+      <td>abuse@godaddy.com</td>
+      <td>Sao Paulo</td>
+      <td>None</td>
+      <td>22:14.2</td>
+      </tr>
+      <tr>
+      <td>https://www.laborcomun.com.mx/wordpress/wp-content/plugins/rafda/ok/ua...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>laborcomun.com.mx</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>22:24.5</td>
+      </tr>
+      <tr>
+      <td>https://epl.paypal-communications.prohandicraft.com/userid</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>PROHANDICRAFT.COMprohandicraft.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.comb00be10fc94f454b9552fbf41a0dcce1.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>22:40.4</td>
+      </tr>
+      <tr>
+      <td>https://iquocglum.net/sie-ihr-konto-19365259308344050</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>IQUOCGLUM.NETiquocglum.net</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>LA</td>
+      <td>None</td>
+      <td>22:58.8</td>
+      </tr>
+      <tr>
+      <td>http://www.apple.com.arshcg.cn/mim/l60567nirdrn4318i64a64992ol40m2302a...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>arshcg.cn</td>
+      <td>上海美橙科技信息发展有限公司</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>43764598@qq.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>23:14.0</td>
+      </tr>
+      <tr>
+      <td>http://www.apple.mac.arshcg.cn/mim/17u8a68c156000v98765335h82o64gm8hr6...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>arshcg.cn</td>
+      <td>上海美橙科技信息发展有限公司</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>43764598@qq.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>23:24.0</td>
+      </tr>
+      <tr>
+      <td>https://paxfulredeem.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>PAXFULREDEEM.COMpaxfulredeem.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.come24533a89dab406399e05ee5a9ad256e.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>23:59.5</td>
+      </tr>
+      <tr>
+      <td>https://alkadiakurier.com/3125/ipkoadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ALKADIAKURIER.COM</td>
+      <td>Registrar of domain names REG.RU LLC</td>
+      <td>Private Person</td>
+      <td>Pologaya 2</td>
+      <td>Moscow</td>
+      <td>RU</td>
+      <td>abuse@reg.ruder_fan@mail.ru</td>
+      <td>Moscow</td>
+      <td>692991</td>
+      <td>24:06.3</td>
+      </tr>
+      <tr>
+      <td>https://zonasegura-multlred.webperu.online/bnweb/inicio/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>WEBPERU.ONLINE</td>
+      <td>Hostinger UAB</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>24:16.2</td>
+      </tr>
+      <tr>
+      <td>https://westrechnungonline.fi/o9gyan43j4yw/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>westrechnungonline.fi</td>
+      <td>INT2000</td>
+      <td>None</td>
+      <td>6554 Prohaska Mall93999Kuusamo</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>24:31.9</td>
+      </tr>
+      <tr>
+      <td>http://amazon-pm.co/pcadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>amazon-pm.co</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>HK</td>
+      <td>abuse@godaddy.com</td>
+      <td>New Territories</td>
+      <td>None</td>
+      <td>24:45.8</td>
+      </tr>
+      <tr>
+      <td>http://cloneendo.com/[email protected]added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>CLONEENDO.COM</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>24:56.4</td>
+      </tr>
+      <tr>
+      <td>https://receiptlib.net/wp-onedrive/doc00024555.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>RECEIPTLIB.NETreceiptlib.net</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>25:15.3</td>
+      </tr>
+      <tr>
+      <td>https://trustvision-eg.com/egt/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>TRUSTVISION-EG.COMtrustvision-eg.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>Trust Vision Egypt</td>
+      <td>None</td>
+      <td>None</td>
+      <td>EG</td>
+      <td>abuse@godaddy.com</td>
+      <td>Not Applicable</td>
+      <td>None</td>
+      <td>25:22.8</td>
+      </tr>
+      <tr>
+      <td>https://nominatedoratio.xyz/dotpayadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>NOMINATEDORATIO.XYZ</td>
+      <td>NameSilo LLC</td>
+      <td>See PrivacyGuardian.org</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@namesilo.com</td>
+      <td>AZ</td>
+      <td>None</td>
+      <td>25:33.5</td>
+      </tr>
+      <tr>
+      <td>https://mybillinginfo-ee.com/account/index?ac=ee...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MYBILLINGINFO-EE.COMmybillinginfo-ee.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com166ea2daae47457f89ea60d75c654cc3.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>26:24.3</td>
+      </tr>
+      <tr>
+      <td>https://wordcounter.net/</td>
+      <td>Legitimate</td>
+      <td>4087</td>
+      <td>WORDCOUNTER.NETwordcounter.net</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com5594e1acb32a454788d69a7361f3476d.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>0</td>
+      <td>26:42.4</td>
+      </tr>
+      <tr>
+      <td>https://netappswyrer7vpkqjiiw4nnetflix.com/ccc36675ce8d7286aff56ecccb5...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>NETAPPSWYRER7VPKQJIIW4NNETFLIX.COMnetappswyrer7vpkqjiiw4nnetflix.com</td>
+      <td>Wild West Domains LLC</td>
+      <td>Domains By Proxy LLC</td>
+      <td>DomainsByProxy.com14455 N. Hayden Road</td>
+      <td>Scottsdale</td>
+      <td>US</td>
+      <td>abuse@wildwestdomains.comnetappswyrer7vpkqjiiw4nnetflix.com@domainsbyproxy.com</td>
+      <td>Arizona</td>
+      <td>85260</td>
+      <td>27:06.6</td>
+      </tr>
+      <tr>
+      <td>http://arquitecturaydiseno-uev.com/mapod/45f41828bc049ae347eaa017a112a...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ARQUITECTURAYDISENO-UEV.COM</td>
+      <td>FastDomain Inc.</td>
+      <td>GDPR MASKED</td>
+      <td>GDPR MASKED</td>
+      <td>GDPR MASKED</td>
+      <td>ES</td>
+      <td>support@bluehost.comGDPR-MASKING@FASTDOMAIN.COM</td>
+      <td>None</td>
+      <td>GDPR Masked</td>
+      <td>27:16.4</td>
+      </tr>
+      <tr>
+      <td>https://mnimzmz.com/squareadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MNIMZMZ.COM</td>
+      <td>Name.com Inc.</td>
+      <td>Domain Protection Services Inc.</td>
+      <td>PO Box 1769</td>
+      <td>Denver</td>
+      <td>US</td>
+      <td>abuse@name.com</td>
+      <td>CO</td>
+      <td>80201</td>
+      <td>27:26.8</td>
+      </tr>
+      <tr>
+      <td>https://myee.unpaid-debit.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>UNPAID-DEBIT.COMunpaid-debit.com</td>
+      <td>Hosting Concepts B.V. d/b/a Openprovider</td>
+      <td>Whois Privacy Protection Foundation</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>NL</td>
+      <td>abuse@registrar.eu</td>
+      <td>Zuid-Holland</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>27:37.4</td>
+      </tr>
+      <tr>
+      <td>http://aruba.sfr-info.u7492543oe.ha004.t.justns.ru/aruba/...added</td>
+      <td>Malicious</td>
+      <td>481789</td>
+      <td>JUSTNS.RU</td>
+      <td>RU-CENTER-RU</td>
+      <td>Limited Liability Company "Baxet"</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>28:03.7</td>
+      </tr>
+      <tr>
+      <td>http://outlet-carrefour.com/loja/true/bask.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>OUTLET-CARREFOUR.COM</td>
+      <td>TUCOWS INC.</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>US</td>
+      <td>domainabuse@tucows.comsupport@inmotionhosting.com</td>
+      <td>CA</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>28:19.4</td>
+      </tr>
+      <tr>
+      <td>https://www.amazon.co.jp.286c08b6ceed2d6f53.top/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>286c08b6ceed2d6f53.top</td>
+      <td>NameSilo</td>
+      <td>See PrivacyGuardian.org</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>US</td>
+      <td>abuse@namesilo.com</td>
+      <td>AZ</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>28:34.7</td>
+      </tr>
+      <tr>
+      <td>http://paypal.ukonlinehelp.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>UKONLINEHELP.COMukonlinehelp.com</td>
+      <td>Hosting Concepts B.V. d/b/a Openprovider</td>
+      <td>Whois Privacy Protection Foundation</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>NL</td>
+      <td>abuse@registrar.eu</td>
+      <td>Zuid-Holland</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>29:46.9</td>
+      </tr>
+      <tr>
+      <td>https://www.gov.claimrebate43.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>CLAIMREBATE43.COMclaimrebate43.com</td>
+      <td>WEBCC</td>
+      <td>Whoisprotection.cc</td>
+      <td>L4-E-2 Level 4 Enterprise 4 Technology Park Malaysia Bukit Jalil</td>
+      <td>Kuala Lumpur</td>
+      <td>Malaysia</td>
+      <td>compliance_abuse@webnic.ccreg_18218641@whoisprotection.ccadm_18218641@whoisprotection.cctec_18218641@whoisprotection.cc</td>
+      <td>Wilayah Persekutuan</td>
+      <td>57000</td>
+      <td>30:04.9</td>
+      </tr>
+      <tr>
+      <td>http://www.skyline-china.com/wp-includes/css/xwells/https.wellsfargo.c...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SKYLINE-CHINA.COMskyline-china.com</td>
+      <td>Alibaba Cloud Computing (Beijing) Co. Ltd.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CN</td>
+      <td>DomainAbuse@service.aliyun.com</td>
+      <td>beijing</td>
+      <td>None</td>
+      <td>30:38.9</td>
+      </tr>
+      <tr>
+      <td>http://www.skyline-china.com/wp-includes/css/xwells/https.wellsfargo.c...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SKYLINE-CHINA.COMskyline-china.com</td>
+      <td>Alibaba Cloud Computing (Beijing) Co. Ltd.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CN</td>
+      <td>DomainAbuse@service.aliyun.com</td>
+      <td>beijing</td>
+      <td>None</td>
+      <td>30:56.2</td>
+      </tr>
+      <tr>
+      <td>http://appscadastro.com/itoken/sms/fis/it2.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>APPSCADASTRO.COM</td>
+      <td>TUCOWS INC.</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>BR</td>
+      <td>domainabuse@tucows.comatendimento@terra.com.br</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>31:29.1</td>
+      </tr>
+      <tr>
+      <td>http://kisalinkim.com/safirbetadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>KISALINKIM.COM</td>
+      <td>FBS Inc.</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>abuse@isimtescil.net</td>
+      <td>None</td>
+      <td>None</td>
+      <td>31:55.3</td>
+      </tr>
+      <tr>
+      <td>https://ebay-kleinanzeigen.de-anfrage82734.mueblesfamari.cl/index_file...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>mueblesfamari.cl</td>
+      <td>NIC Chile</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>32:08.0</td>
+      </tr>
+      <tr>
+      <td>https://dliesel.com/server/webmail/[email protected]added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>DLIESEL.COM</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>None</td>
+      <td>1296 OLD DIERKS HWY</td>
+      <td>LOCKESBURG</td>
+      <td>US</td>
+      <td>abuse-contact@publicdomainregistry.comwwyma@yahoo.com</td>
+      <td>AR</td>
+      <td>71846</td>
+      <td>32:14.9</td>
+      </tr>
+      <tr>
+      <td>http://signin-store-ws.frontieroption.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>FRONTIEROPTION.COM</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>Privacy Protect LLC (PrivacyProtect.org)</td>
+      <td>10 Corporate Drive</td>
+      <td>Burlington</td>
+      <td>US</td>
+      <td>abuse-contact@publicdomainregistry.comcontact@privacyprotect.org</td>
+      <td>MA</td>
+      <td>1803</td>
+      <td>32:25.7</td>
+      </tr>
+      <tr>
+      <td>http://saluti24.ru/paypapmobile/afd82de65876c3ad3e40453713daaaa1/401ff...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SALUTI24.RU</td>
+      <td>REGRU-RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>32:35.0</td>
+      </tr>
+      <tr>
+      <td>https://jollyvarex.com/bankofamerica/login.php?cmd=login_submit</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>JOLLYVAREX.COMjollyvarex.com</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>CA</td>
+      <td>None</td>
+      <td>33:09.6</td>
+      </tr>
+      <tr>
+      <td>https://www2.amazon.co.jp.bew-gw24w1bee-e52wbe3.party/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>bew-gw24w1bee-e52wbe3.party</td>
+      <td>NameSilo LLC</td>
+      <td>See PrivacyGuardian.org</td>
+      <td>1928 E. Highland Ave. Ste F104 PMB# 255</td>
+      <td>Phoenix</td>
+      <td>US</td>
+      <td>abuse@namesilo.compw-22d79af943c30cf8719f8b22915fcdae@privacyguardian.org</td>
+      <td>AZ</td>
+      <td>85016</td>
+      <td>33:41.3</td>
+      </tr>
+      <tr>
+      <td>http://hmrc-tax-rebates.ru/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>HMRC-TAX-REBATES.RU</td>
+      <td>R01-RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>33:57.8</td>
+      </tr>
+      <tr>
+      <td>http://ww-monabanq.com/01/home/login.php?_nfpb=true</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>WW-MONABANQ.COMww-monabanq.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>FR</td>
+      <td>abuse@godaddy.com</td>
+      <td>Paris</td>
+      <td>None</td>
+      <td>34:40.1</td>
+      </tr>
+      <tr>
+      <td>https://fiddlemarches.com/liz/granum/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>FIDDLEMARCHES.COMfiddlemarches.com</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>North Carolina</td>
+      <td>None</td>
+      <td>35:01.7</td>
+      </tr>
+      <tr>
+      <td>http://turkmcse.com/home/_message/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>TURKMCSE.COMturkmcse.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CN</td>
+      <td>abuse@godaddy.com</td>
+      <td>Fujian</td>
+      <td>None</td>
+      <td>35:13.8</td>
+      </tr>
+      <tr>
+      <td>http://superdescontoss.com/loja/true/bask.phpadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SUPERDESCONTOSS.COM</td>
+      <td>TUCOWS INC.</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>BR</td>
+      <td>domainabuse@tucows.comsupport@inmotionhosting.com</td>
+      <td>Rio de Janeiro</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>35:41.8</td>
+      </tr>
+      <tr>
+      <td>https://paypal-id293357902617.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>PAYPAL-ID293357902617.COMpaypal-id293357902617.com</td>
+      <td>ERANET INTERNATIONAL LIMITED</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>RU</td>
+      <td>cs@now.cn</td>
+      <td>Moscow</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>36:04.5</td>
+      </tr>
+      <tr>
+      <td>https://rixmbeso.com/jh/0nfile/oneddrive/login-option.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>RIXMBESO.COMrixmbeso.com</td>
+      <td>Google LLC</td>
+      <td>Contact Privacy Inc. Customer 1247372444</td>
+      <td>96 Mowat Ave</td>
+      <td>Toronto</td>
+      <td>CA</td>
+      <td>registrar-abuse@google.com1n3j5136utqq@contactprivacy.email</td>
+      <td>ON</td>
+      <td>M4K 3K1</td>
+      <td>36:14.8</td>
+      </tr>
+      <tr>
+      <td>http://spamjrty.net/aw/mazon/1d29f/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SPAMJRTY.NET</td>
+      <td>TUCOWS INC.</td>
+      <td>Contact Privacy Inc. Customer 0158214049</td>
+      <td>96 Mowat Ave</td>
+      <td>Toronto</td>
+      <td>CA</td>
+      <td>spamjrty.net@contactprivacy.comdomainabuse@tucows.com</td>
+      <td>ON</td>
+      <td>M6K 3M1</td>
+      <td>36:21.3</td>
+      </tr>
+      <tr>
+      <td>http://www.sms-ebacolom.com/validatepasswordscis=no-back-button.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SMS-EBACOLOM.COMsms-ebacolom.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>Repossessed by Go Daddy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@godaddy.com</td>
+      <td>AZ</td>
+      <td>None</td>
+      <td>36:39.9</td>
+      </tr>
+      <tr>
+      <td>http://itapagamento.com/~/index.htmladded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ITAPAGAMENTO.COM</td>
+      <td>Launchpad Inc. (HostGator)</td>
+      <td>Privacy Protect LLC (PrivacyProtect.org)</td>
+      <td>10 Corporate Drive</td>
+      <td>Burlington</td>
+      <td>US</td>
+      <td>contact@privacyprotect.orgabuse@websitewelcome.com</td>
+      <td>MA</td>
+      <td>1803</td>
+      <td>36:48.6</td>
+      </tr>
+      <tr>
+      <td>https://jp-bank.apanpset.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>APANPSET.COMapanpset.com</td>
+      <td>JIANGSU BANGNING SCIENCE & TECHNOLOGY CO. LTD</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>CN</td>
+      <td>abuse@55hl.com</td>
+      <td>hebei</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>37:01.9</td>
+      </tr>
+      <tr>
+      <td>http://itapagamento.com/~/index.html?qzabq</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ITAPAGAMENTO.COM</td>
+      <td>Launchpad Inc. (HostGator)</td>
+      <td>Privacy Protect LLC (PrivacyProtect.org)</td>
+      <td>10 Corporate Drive</td>
+      <td>Burlington</td>
+      <td>US</td>
+      <td>contact@privacyprotect.orgabuse@websitewelcome.com</td>
+      <td>MA</td>
+      <td>1803</td>
+      <td>37:14.1</td>
+      </tr>
+      <tr>
+      <td>https://secure.runescape.com-en.ru/m=weblogin/loginform341</td>
+      <td>479</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>697...added</td>
+      <td>Malicious</td>
+      <td>COM-EN.RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>COM-EN.RU</td>
+      </tr>
+      <tr>
+      <td>https://secure.runescape.com-as.ru/m=weblogin/loginform222</td>
+      <td>434</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>549...added</td>
+      <td>Malicious</td>
+      <td>COM-AS.RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>COM-AS.RU</td>
+      </tr>
+      <tr>
+      <td>https://secure.runescape.com-zx.ru/m=weblogin/loginform958</td>
+      <td>727</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>262...added</td>
+      <td>Malicious</td>
+      <td>COM-ZX.RU</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>COM-ZX.RU</td>
+      </tr>
+      <tr>
+      <td>https://www.itaucard.trocarmilha.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>TROCARMILHA.COM</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>Privacy Protect LLC (PrivacyProtect.org)</td>
+      <td>10 Corporate Drive</td>
+      <td>Burlington</td>
+      <td>US</td>
+      <td>abuse-contact@publicdomainregistry.comcontact@privacyprotect.org</td>
+      <td>MA</td>
+      <td>1803</td>
+      <td>37:58.9</td>
+      </tr>
+      <tr>
+      <td>http://itapagamento.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ITAPAGAMENTO.COM</td>
+      <td>Launchpad Inc. (HostGator)</td>
+      <td>Privacy Protect LLC (PrivacyProtect.org)</td>
+      <td>10 Corporate Drive</td>
+      <td>Burlington</td>
+      <td>US</td>
+      <td>contact@privacyprotect.orgabuse@websitewelcome.com</td>
+      <td>MA</td>
+      <td>1803</td>
+      <td>38:14.5</td>
+      </tr>
+      <tr>
+      <td>https://livrmjanseva.com/loading/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>LIVRMJANSEVA.COM</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>livrm infotech pvt ltd</td>
+      <td>Nadeshar  Varanasi</td>
+      <td>Varanasi</td>
+      <td>IN</td>
+      <td>abuse-contact@publicdomainregistry.comlivrminfotech@gmail.com</td>
+      <td>Uttar Pradesh</td>
+      <td>221001</td>
+      <td>38:23.7</td>
+      </tr>
+      <tr>
+      <td>http://notificacionesbamcolonbia.com/informacion/transactions.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>NOTIFICACIONESBAMCOLONBIA.COMnotificacionesbamcolonbia.com</td>
+      <td>NETIM</td>
+      <td>None</td>
+      <td>REDACTED</td>
+      <td>REDACTED</td>
+      <td>REDACTED</td>
+      <td>abuse@netim.nettld@francedns.com</td>
+      <td>REDACTED</td>
+      <td>REDACTED</td>
+      <td>38:32.5</td>
+      </tr>
+      <tr>
+      <td>https://baci-bd.org/wp-content/uploads/2020/04/--/pontos/semprepresent...added</td>
+      <td>Malicious</td>
+      <td>1767907</td>
+      <td>BACI-BD.ORG</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>BACI</td>
+      <td>Dhanmondi</td>
+      <td>Dhaka</td>
+      <td>BD</td>
+      <td>abuse-contact@publicdomainregistry.comsec.baci@gmail.com</td>
+      <td>Dhaka</td>
+      <td>1209</td>
+      <td>38:41.8</td>
+      </tr>
+      <tr>
+      <td>https://mklmp.com/mobile/carrinho.php?enc=232710018...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MKLMP.COM</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>Jose bezerra Neto</td>
+      <td>bom sucesso</td>
+      <td>mg</td>
+      <td>BR</td>
+      <td>abuse-contact@publicdomainregistry.comwibog24774@psk3n.com</td>
+      <td>mg</td>
+      <td>37220000</td>
+      <td>38:49.2</td>
+      </tr>
+      <tr>
+      <td>https://conjuntodejunho.com/mobile/carrinho.php?enc=601174325...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>CONJUNTODEJUNHO.COMconjuntodejunho.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>Repossessed by Go Daddy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@godaddy.com</td>
+      <td>AZ</td>
+      <td>None</td>
+      <td>38:57.3</td>
+      </tr>
+      <tr>
+      <td>http://bclmbclick.me/desbloqueos/confirmpfis=no-back-button.php...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>BCLMBCLICK.MEbclmbclick.me</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>39:05.3</td>
+      </tr>
+      <tr>
+      <td>https://kolobans.com/wp-content/themes/amz/60240/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>KOLOBANS.COMkolobans.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@godaddy.com</td>
+      <td>Hawaii</td>
+      <td>None</td>
+      <td>39:11.0</td>
+      </tr>
+      <tr>
+      <td>https://www.bing.com/images/search?view=detailv2</td>
+      <td>Legitimate</td>
+      <td>35</td>
+      <td>BING.COMbing.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Microsoft Corporation</td>
+      <td>One Microsoft Way</td>
+      <td>Redmond</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comdomains@microsoft.commsnhst@microsoft.comwhoisrequest@markmonitor.com</td>
+      <td>WA</td>
+      <td>98052</td>
+      <td>39:17.2</td>
+      </tr>
+      <tr>
+      <td>https://zarmgratiz.com/sns/xxadded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ZARMGRATIZ.COMzarmgratiz.com</td>
+      <td>ALIBABA.COM SINGAPORE E-COMMERCE PRIVATE LIMITED</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>domainabuse@service.aliyun.com</td>
+      <td>North Carolina</td>
+      <td>None</td>
+      <td>39:28.4</td>
+      </tr>
+      <tr>
+      <td>https://arquitecturaydiseno-uev.com/mapod/c4e057eac4f2d82f4590bf43a9c6...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>ARQUITECTURAYDISENO-UEV.COM</td>
+      <td>FastDomain Inc.</td>
+      <td>GDPR MASKED</td>
+      <td>GDPR MASKED</td>
+      <td>GDPR MASKED</td>
+      <td>ES</td>
+      <td>support@bluehost.comGDPR-MASKING@FASTDOMAIN.COM</td>
+      <td>None</td>
+      <td>GDPR Masked</td>
+      <td>39:33.8</td>
+      </tr>
+      <tr>
+      <td>https://tabladesurfconmotor.com/vitr/8d56f73cb2ee64adf1c0a24a0cd432f5?...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>TABLADESURFCONMOTOR.COMtabladesurfconmotor.com</td>
+      <td>Arsys Internet S.L. dba NICLINE.COM</td>
+      <td>None</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>ES</td>
+      <td>email@nicline.comwhoiscontact@domainconnection.info</td>
+      <td>LAS PALMAS</td>
+      <td>REDACTED FOR PRIVACY</td>
+      <td>39:57.3</td>
+      </tr>
+      <tr>
+      <td>https://myee-accountbilling.com/account/index?ac=ee...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MYEE-ACCOUNTBILLING.COMmyee-accountbilling.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com073f31d41f8b4d07b38dece5a1700dca.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>40:05.5</td>
+      </tr>
+      <tr>
+      <td>https://toyotajtb.id/adm/adm.htmladded</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>toyotajtb.id</td>
+      <td>Digital Registra</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>40:19.0</td>
+      </tr>
+      <tr>
+      <td>https://www.laborcomun.com.mx/wordpress/wp-content/uas/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>laborcomun.com.mx</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>40:41.0</td>
+      </tr>
+      <tr>
+      <td>https://www.bing.com/search?q=stamp</td>
+      <td>Legitimate</td>
+      <td>35</td>
+      <td>BING.COMbing.com</td>
+      <td>MarkMonitor Inc.</td>
+      <td>Microsoft Corporation</td>
+      <td>One Microsoft Way</td>
+      <td>Redmond</td>
+      <td>US</td>
+      <td>abusecomplaints@markmonitor.comdomains@microsoft.commsnhst@microsoft.comwhoisrequest@markmonitor.com</td>
+      <td>WA</td>
+      <td>98052</td>
+      <td>40:59.9</td>
+      </tr>
+      <tr>
+      <td>http://www.sms-ebacolom.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>SMS-EBACOLOM.COMsms-ebacolom.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>Repossessed by Go Daddy</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@godaddy.com</td>
+      <td>AZ</td>
+      <td>None</td>
+      <td>41:28.8</td>
+      </tr>
+      <tr>
+      <td>https://gov.uk-idverify.com/added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>UK-IDVERIFY.COMuk-idverify.com</td>
+      <td>NAMECHEAP INC</td>
+      <td>WhoisGuard Inc.</td>
+      <td>P.O. Box 0823-03411</td>
+      <td>Panama</td>
+      <td>PA</td>
+      <td>abuse@namecheap.com014ed97a9d9644b3ae4022774cd7d594.protect@whoisguard.com</td>
+      <td>Panama</td>
+      <td>None</td>
+      <td>41:41.4</td>
+      </tr>
+      <tr>
+      <td>http://www.laborcomun.com.mx/wordpress/wp-content/plugins/rafda/ok/uas...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>laborcomun.com.mx</td>
+      <td>PDR Ltd. d/b/a PublicDomainRegistry.com</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>41:57.2</td>
+      </tr>
+      <tr>
+      <td>http://mj7x.com/news/wp-content/plugins/soo/login.php?</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>MJ7X.COMmj7x.com</td>
+      <td>GoDaddy.com LLC</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>CN</td>
+      <td>abuse@godaddy.com</td>
+      <td>Shanghai</td>
+      <td>None</td>
+      <td>42:15.9</td>
+      </tr>
+      <tr>
+      <td>https://www.kapwing.com/resources/introducing-auto-subtitling/</td>
+      <td>Legitimate</td>
+      <td>2558</td>
+      <td>KAPWING.COM</td>
+      <td>Cloudflare Inc.</td>
+      <td>DATA REDACTED</td>
+      <td>DATA REDACTED</td>
+      <td>DATA REDACTED</td>
+      <td>US</td>
+      <td>registrar-abuse@cloudflare.com</td>
+      <td>CA</td>
+      <td>DATA REDACTED</td>
+      <td>42:20.3</td>
+      </tr>
+      <tr>
+      <td>https://www.amazon.co.jp.sfynr5461wq314wg6gw.buzz/...added</td>
+      <td>Malicious</td>
+      <td>-1</td>
+      <td>sfynr5461wq314wg6gw.buzz</td>
+      <td>NameSilo LLC</td>
+      <td>See PrivacyGuardian.org</td>
+      <td>None</td>
+      <td>None</td>
+      <td>US</td>
+      <td>abuse@namesilo.com</td>
+      <td>AZ</td>
+      <td>None</td>
+      <td>42:25.9</td>
+      </tr>
+  </tbody>
+  
+</table>
+  <!-- End your project here-->
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="{% static 'js/addons/datatables2.min.js' %}"></script>
+<script>
+  $(document).ready(function () {
+  $('#dtBasicExample').DataTable();
+  $('.dataTables_length').addClass('bs-select');
+});
+</script>
+
+</body>
+</html>

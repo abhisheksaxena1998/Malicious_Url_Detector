@@ -1,0 +1,420 @@
+{% extends 'index.html' %}
+{% block title %}Fetch Live Analysis{% endblock %}
+{% block content %}
+</br></br>  
+    <div class="container-fluid" style="margin-top: 1rem;margin-bottom: 5rem;">
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+
+                <div class="alert alert-info" role="alert">
+                    <h4 class="alert alert-info" >Why live data analysis? </h4>
+                    
+                    <hr>
+                    <p class="mb-0" style="color:navy;">In order to combat phishing effectively, it is important to understand how phishers use
+                        these URLs and its domain, organisation.</p>
+                        <p class="mb-0" style="color:navy;">Research questions answered in this section are :-</p>
+                    </br>                    
+                       <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	Country wise share of hosting Legitimate and Phishing websites?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	Can we identify the main Registrars hosting these websites for both Legitimate and Malicious URLs?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	Are there any similarities among registrars hosting Legitimate and Malicious URLs?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	Which registrars phishers target, do all phishers use common registrars?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	What pattern can be detected from browsing history, can we get the peak time at for Web-Application and Chrome Extension use to auto-scale the application efficiently?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	What is Proportion of Malicious (Phishing websites) detected?
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify"></br>
+                                -	Which organisation’s websites were browsed the Most?
+                            </p>
+                        </li>
+
+                  </div>
+
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+
+                        
+                    <!-- Card content -->
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">Number of Legitimate and Malicious Websites as inferred from URL browsing history</h5>
+                    </br></br>
+                        <ul class="list-group" style="text-align: center;">
+                            <li class="list-group-item">
+  
+                              <p>Number of Malicious URLs detected : </p><span class="badge badge-pill badge-danger"><h6>{{ nm }}</h6></span>
+                              <p>Number of Legitimate URLs detected : </p><span class="badge badge-pill badge-primary"><h6>{{ nl }}</h6></span>
+                            </li>
+                        </ul>
+                    </br>
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">Proportion of Legitimate and Malicious Websites as inferred from URL browsing history</h5>
+                        
+
+                    </div>
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f2}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Proportion of Legitimate and Malicious (Phishing URLs related to cyberfrauds are shown here. This is live analysis, the database keeps itself updated with our Chrome Extension.
+                        </p></li>
+                    </div>
+    
+                    
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </br>
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+                     <!-- Card content -->
+                     <div class="card-body">
+    
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">URLs of various organisations visited, detected through Chrome Extension</h5>
+    
+                    </div>
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f3}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Organisation name usage is an important measure related with the scope of the global phishing problem as phishers target trending organisations and live analysis even help to understand the preferences of the visitors in terms of most visited organisation.
+                            In Test Results we have shown the detected Phishing URL instances of reputed Organisations through our Chrome Extension <a href="https://mudv5.eu-gb.cf.appdomain.cloud/testresults">https://mudv5.eu-gb.cf.appdomain.cloud/testresults </a>These Phishing URLs were detected through our Machine Learning / Data Science approach for detection of Malicious URLs related to cyberfrauds 
+                        </p></li>
+                    </div>
+    
+                   
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+
+    </br>
+
+
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+                     <!-- Card content -->
+                     <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">URLs of various registrars browsed as detected from Chrome Extension</h5>
+                        
+    
+                    </div>
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f4}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Analysis of URL registrar provides clues about most trending, easy accessible registrar and how phishers mislead Internet users, and reveals how phishers are using certain online service providers. 
+                        </p></li>
+                    </div>
+    
+                   
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </br>
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+                     <!-- Card content -->
+                     <div class="card-body">
+    
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">URLs of various country browsed as detected from Chrome Extension</h5>
+    
+                    </div>
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f5}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Analysis of URLs here depicts Country Wise share in hosting websites.
+                        </p></li>
+                    </div>
+    
+                   
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </br>
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+                    <!-- Card content -->
+                    <div class="card-body">
+    
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">Malicious URLs from various countries as detected from Chrome Extension </h5>
+    
+                    </div>
+    
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f6}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Analysis of URLs here depicts Country Wise share in hosting Malicious websites.
+                        </p></li>
+                    </div>
+    
+                    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </br>
+    <div class="row">
+        <div class="col-md-8" style="margin: 0 auto;">
+            <!-- Card -->
+            <div class="card" style="margin-bottom: 1rem;">
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <h5 class="card-title" style="text-align: center;margin: 0 auto;">Malicious URLs from various registrars as detected from Chrome Extension </h5>
+
+                </div>
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="img-fluid"
+                    src={{f9}} style="    margin-left: 25%;
+                    margin-right: 25%;
+                    width: 50%;
+                    display: block;margin-bottom: 5px;"
+                        alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body card-body-cascade text-center">
+                    <!-- Text -->
+                    <li class=" list-group-item">
+                    <p class="card-text" style="text-align:center"></br>Analysis of URLs here depicts registrar Wise share in hosting Malicious websites.
+                    </p></li>
+                </div>
+
+                
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+
+    </br>
+    <div class="row">
+        <div class="col-md-8" style="margin: 0 auto;">
+            <!-- Card -->
+            <div class="card" style="margin-bottom: 1rem;">
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <h5 class="card-title" style="text-align: center;margin: 0 auto;">Legitimate URLs from various registrars as detected from Chrome Extension </h5>
+
+                </div>
+
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="img-fluid"
+                    src={{f10}} style="    margin-left: 25%;
+                    margin-right: 25%;
+                    width: 50%;
+                    display: block;margin-bottom: 5px;"
+                        alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body card-body-cascade text-center">
+                    <!-- Text -->
+                    <li class=" list-group-item">
+                    <p class="card-text" style="text-align:center"></br>Analysis of URLs here depicts registrar Wise share in hosting Legitimate websites.
+                    </p></li>
+                </div>
+
+                
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+
+    </br>
+        <div class="row">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+                     <!-- Card content -->
+                     <div class="card-body">
+    
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">Legitimate URLs of various country browsed as detected from Chrome Extension</h5>
+    
+                    </div>
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                        src={{f7}} style="    margin-left: 25%;
+                        margin-right: 25%;
+                        width: 50%;
+                        display: block;margin-bottom: 5px;"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body card-body-cascade text-center">
+                        <!-- Text -->
+                        <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>Analysis of URLs here depicts Country Wise share in hosting Legitimate websites.
+                        </p></li>
+                    </div>
+    
+                   
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+
+
+
+
+
+
+    </br>
+
+
+    <div class="row">
+        <div class="col-md-8" style="margin: 0 auto;">
+            <!-- Card -->
+            <div class="card" style="margin-bottom: 1rem;">
+                 <!-- Card content -->
+                 <div class="card-body card-body-cascade text-center">
+                    
+                    <h5 class="card-title" style="text-align: center;margin: 0 auto;">Time when users are most active</h5>
+                    
+                </div>  
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="img-fluid"
+                    src={{f8}} style="    margin-left: 25%;
+                    margin-right: 25%;
+                    width: 50%;
+                    display: block;margin-bottom: 5px;"
+                        alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body card-body-cascade text-center">
+                    <!-- Text -->
+                    <li class=" list-group-item">
+                        <p class="card-text" style="text-align:center"></br>The peak hours detected through browsing history depict browsing behaviour of users and in hours of maximum observed activity advertisements could be displayed as they will get attention of users in peak intervals. Also the peak hour shows when users are most active, this could help us in Auto-Scaling the application </p>
+                    </p></li>
+                </div>
+
+                
+
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+
+
+
+
+
+
+</br>
+
+
+
+
+        <div class="row" style="margin-bottom: 1rem;">
+            <a href="/" class="btn btn-primary" style="margin: 0 auto;display: block;">Home</a>
+        </div>
+    </div>
+
+{% endblock %}    

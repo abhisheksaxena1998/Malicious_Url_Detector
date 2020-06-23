@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+</br></br>
+    <div class="container-fluid" style="margin-top: 1rem;margin-bottom: 5rem;">
+        <div class="row">
+            <div class="col-md-6" style="margin: 0 auto;">
+                <!-- Card -->
+                <div class="card" style="margin-bottom: 1rem;">
+    
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="img-fluid"
+                            src="/static/s.jpg"
+                            alt="Card image cap">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+    
+                    <!-- Card content -->
+                    <div class="card-body">
+    
+                        <!-- Title -->
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">The Application consists of 2 parts :.</h5></br>
+                        <!-- Text -->
+                        <h5 class="card-title" style="text-align: center;margin: 0 auto;">Web Application and Chrome Extension</h5></br>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify">
+                                <strong>Web Application :</strong>Through Web Application we can get detailed location (address, city, state, country), registrar, URL existence period (age), Alexa Rank, and IP information. Along with this, detailed results, user’s browsing history, live analysis of phishing activity detected through our application is maintained in Web Application.
+ 
+                                
+                            </p>
+                        </li>
+                        <li class=" list-group-item">
+                            <p class="card-text" style="text-align:justify">
+                                <strong>Chrome Extension :</strong>Using JavaScript in Extension an automated request is sent to our Web Application Endpoint in Real-Time that returns a JSON response and through which a URL’s safety status is detected. If user visits an unsafe URL he/she is alerted through the Chrome Extension about Phishing URL, and is redirected to a safe page. Browser extension is developed for seamless and safe surfing on browsers. Our  extension support Chrome, and Brave most trending browsers. 
+
+ 
+                                
+                            </p>
+                        </li>
+                        
+    
+                    </div>
+    
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 1rem;">
+            <a href="/" class="btn btn-primary" style="margin: 0 auto;display: block;">Home</a>
+        </div>
+    </div>
+
+{% endblock %}    

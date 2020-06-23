@@ -1,0 +1,294 @@
+{% extends 'index.html' %}
+{% block title %}Result Page{% endblock %}
+{% block content %}
+</br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8" style="margin: 2rem auto 0 auto;">
+            {% if mal %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Legitimate Url</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6" style="margin: 1rem auto 5rem auto;">
+                        <!-- Card -->
+                        <div class="card">
+
+                            <!-- Card image -->
+                            <div class="view overlay">
+                                <img class="card-img-top" src="/static/safe.jpg" alt="Card image cap">
+                                <a href="#!">
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="margin: 1rem auto 5rem auto;">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="width: auto;margin: 1rem auto;">
+                            <div class="card-body card-text">
+                              <h5 class="card-title" style="color: mediumblue;
+                              text-align: center;">Registered Information</h5>
+                              <ul class="list-group">
+                                  <p style="font-size: 15px;">
+                                <li class="list-group-item"><strong>Dom :</strong> {{dom}}</li>
+                                <li class="list-group-item"><strong>Organisation :</strong> {{org}}</li>
+                                <li class="list-group-item"><strong>Email :</strong> {{emails}}</li>
+                                <li class="list-group-item"><strong>Registrar :</strong> {{registrar}}</li>
+                            </p>
+                            </div>
+                          </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card" style="width: auto;margin: 1rem auto;">
+                            <div class="card-body card-text">
+                            
+                              <h5 class="card-title" style="color: mediumblue;
+                              text-align: center;">Registered Address</h5>
+                              <ul class="list-group">
+                                <p style="font-size: 15px;">
+                                <li class="list-group-item"><strong>Add :</strong> {{add}}</li>
+                                <li class="list-group-item"><strong>City :</strong> {{city}}</li>
+                                <li class="list-group-item"><strong>State :</strong> {{state}}</li>
+                                <li class="list-group-item"><strong>Ziip :</strong> {{ziip}}</li>
+                                <li class="list-group-item"><strong>Country :</strong> {{country}}</li>
+                                </p>
+                              </ul>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="width: auto;margin: 1rem auto;">
+                            <div class="card-body card-text" >
+                              <h5 class="card-title" style="color: mediumblue;
+                              text-align: center;">IP Information</h5>
+                              <ul class="list-group">
+                                <p style="font-size: 15px;">
+                                <li class="list-group-item"><strong>Detected IP Address :</strong> {{ipadd}}</li>
+                                <li class="list-group-item"><strong>Detected City from IP Address :</strong> {{ipcity}}</li>
+                                <li class="list-group-item"><strong>Detected State from IP Address :</strong> {{ipstate}}</li>
+                                <li class="list-group-item"><strong>Detected Country from IP Address :</strong> {{ipcountry}}</li>
+                                <li class="list-group-item"><strong>Detected Latitude from IP Address :</strong> {{iplatitude}}</li>
+                                <li class="list-group-item"><strong>Detected Longitude from IP Address :</strong> {{iplongitude}}</li>
+                                </p></ul>
+                            </div>
+                          </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card" style="width: auto;margin: 1rem auto;">
+                            <div class="card-body card-text" >
+                              <h5 class="card-title" style="color: mediumblue;
+                              text-align: center;">Website Characterstics</h5>
+                            <ul class="list-group">
+                                <p style="font-size: 15px;">
+                              
+
+                              <li class="list-group-item"><strong>Link :</strong> {{text}}</li>
+                              <li class="list-group-item"><strong>Name :</strong> {{name}}</li>
+                              
+                             
+                              
+                              
+                              <li class="list-group-item"><strong>Alexa Index Rank :</strong> {{rank}}</li>
+                              
+                              <li class="list-group-item"><strong>Status abnormal url :</strong> {{varab}}</li>
+                              <li class="list-group-item"><strong> Domain age :</strong> {{var11}}</li>
+                              <li class="list-group-item"><strong>Status Redirects :</strong> {{var10}}</li>
+                              <li class="list-group-item"><strong>Status Prefix suffix :</strong> {{var5}}</li>
+                              <li class="list-group-item"><strong>Status '@' Detected :</strong> {{var3}}</li>
+
+
+                                </p>
+                            </ul>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <!-- Card -->
+                    </div>
+                </div>
+
+                <script>
+                    Swal.fire(
+                    'This url looks safe!',
+                    'Go Ahead !',
+                    'success'
+                             )
+                 </script>
+                 
+                {% else %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Malicious Url</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6" style="margin: 1rem auto 5rem auto;">
+                            <!-- Card -->
+                            <div class="card">
+
+                                <!-- Card image -->
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="/static/fake.jpg" alt="Card image cap">
+                                    <a href="#!">
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12" style="margin: 1rem auto 5rem auto;">
+                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card" style="width: auto;margin: 1rem auto;">
+                                            <div class="card-body card-text">
+                                              <h5 class="card-title" style="color: red;
+                                              text-align: center;">Registered Information</h5>
+                                              <ul class="list-group">
+                                                  <p style="font-size: 15px;">
+                                                <li class="list-group-item"><strong>Dom :</strong> {{dom}}</li>
+                                                <li class="list-group-item"><strong>Organisation :</strong> {{org}}</li>
+                                                <li class="list-group-item"><strong>Email :</strong> {{emails}}</li>
+                                                <li class="list-group-item"><strong>Registrar :</strong> {{registrar}}</li>
+                                            </p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="card" style="width: auto;margin: 1rem auto;">
+                                            <div class="card-body card-text">
+                                            
+                                              <h5 class="card-title" style="color: red;
+                                              text-align: center;">Registered Address</h5>
+                                              <ul class="list-group">
+                                                <p style="font-size: 15px;">
+                                                <li class="list-group-item"><strong>Add :</strong> {{add}}</li>
+                                                <li class="list-group-item"><strong>City :</strong> {{city}}</li>
+                                                <li class="list-group-item"><strong>State :</strong> {{state}}</li>
+                                                <li class="list-group-item"><strong>Ziip :</strong> {{ziip}}</li>
+                                                <li class="list-group-item"><strong>Country :</strong> {{country}}</li>
+                                                </p>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                
+                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card" style="width: auto;margin: 1rem auto;">
+                                            <div class="card-body card-text" >
+                                              <h5 class="card-title" style="color: red;
+                                              text-align: center;">IP Information</h5>
+                                              <ul class="list-group">
+                                                <p style="font-size: 15px;">
+                                                <li class="list-group-item"><strong>Detected IP Address :</strong> {{ipadd}}</li>
+                                                <li class="list-group-item"><strong>Detected City from IP Address :</strong> {{ipcity}}</li>
+                                                <li class="list-group-item"><strong>Detected State from IP Address :</strong> {{ipstate}}</li>
+                                                <li class="list-group-item"><strong>Detected Country from IP Address :</strong> {{ipcountry}}</li>
+                                                <li class="list-group-item"><strong>Detected Latitude from IP Address :</strong> {{iplatitude}}</li>
+                                                <li class="list-group-item"><strong>Detected Longitude from IP Address :</strong> {{iplongitude}}</li>
+                                                </p></ul>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="card" style="width: auto;margin: 1rem auto;">
+                                            <div class="card-body card-text" >
+                                              <h5 class="card-title" style="color: red;
+                                              text-align: center;">Website Characterstics</h5>
+                                            <ul class="list-group">
+                                                <p style="font-size: 15px;">
+                                              
+                
+                                              <li class="list-group-item"><strong>Link :</strong> {{text}}</li>
+                                              <li class="list-group-item"><strong>Name :</strong> {{name}}</li>
+                                              
+                                             
+                                              
+                                              
+                                              <li class="list-group-item"><strong>Alexa Index Rank :</strong> {{rank}}</li>
+                                              
+                                              <li class="list-group-item"><strong>Status abnormal url :</strong> {{varab}}</li>
+                                              <li class="list-group-item"><strong> Domain age :</strong> {{var11}}</li>
+                                              <li class="list-group-item"><strong>Status Redirects :</strong> {{var10}}</li>
+                                              <li class="list-group-item"><strong>Status Prefix suffix :</strong> {{var5}}</li>
+                                              <li class="list-group-item"><strong>Status '@' Detected :</strong> {{var3}}</li>
+                
+                
+                                                </p>
+                                            </ul>
+                                            </div>
+                                          </div>
+                                    </div>
+                    </div>
+                
+                
+                
+                            </div>
+                            <!-- Card -->
+                        </div>
+                    </div>
+                    <script>
+                    Swal.fire(
+                        'Phishing Detected !',
+      'You are safe :)',
+      'error'
+)
+                    </script>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

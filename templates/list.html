@@ -1,0 +1,189 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+  <link rel="icon" href="{%static '46-512.png' %}" type="image/png">
+  <title>URL history</title>
+
+</head>
+<div class="bg">
+<body style="background-image: url(static/wpcy.jpg);background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;background-size: cover;"></div>
+  <!--Navbar-->
+ 
+  <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top scrolling-navbar" >
+
+    <!-- Navbar brand -->
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'geturlhistory' %}">URL History Database</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'fetchanalysis' %}">Live Data Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'testresults' %}">Test Results</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'getuserfeedbackform' %}">User FeedBack</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'discuss' %}">Discuss Channel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'getdataset' %}">Download Dataset (URL History)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About Application</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% static 'chrome-ext.zip' %}" download>Download Chrome Extension</a>
+        </li>
+      </ul>
+      <!-- Links -->
+    </div>
+    <!-- Collapsible content -->
+
+  </nav>
+  <!--/.Navbar-->
+
+</br></br>
+<div class="container-fluid" style="margin-top: 2px;">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="{% url 'search' %}" method="GET">
+        <input type="text" id="search" name="search" class="form-control mb-4" placeholder="Search" autocomplete="off" style="margin-top: 50px;">
+        <button type="submit" class="btn btn-primary" style="display: block;margin: 0 auto;">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 7rem;margin-top: 1rem;">
+    <div class="col-md-6 " style="margin: 0 auto;">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert alert-info" >Why Database Section? </h4>
+        
+        <hr>
+        <p class="mb-0">In order to combat phishing effectively, it is important to understand origin-signature of Phishing URLs and how they are different from Legitimate URLs.<strong> Click on the URL to view its detailed status.</strong> </p>
+      </div>
+      {% for url in urls %}
+      <!-- Card -->
+      <div class="card" style="margin-top: 1rem;">
+        <div class="card-body">
+
+          <!-- Title -->
+          <h6 class="card-title" style="text-align: center;"><a href="https://mudvfinal.eu-gb.cf.appdomain.cloud/result?url={{url.link}}" >{{url.link}}</a></h6>
+          <!-- Text -->
+          <p class="card-text"><strong>Result :</strong>  {{url.result}}</p>
+          <!-- Button -->
+          <p class="card-text"><strong>Address :</strong>  {{url.add}}</p>
+
+          <p class="card-text"><strong>Organization :</strong>  {{url.org}}</p>
+
+          <p class="card-text"><strong>State :</strong>  {{url.state}}</p>
+
+          <p class="card-text"><strong>City :</strong>  {{url.city}}</p>
+
+          <p class="card-text"><strong>Country :</strong>  {{url.country}}</p>
+
+          <p class="card-text"><strong>Domain :</strong>  {{url.dom}}</p>
+
+          <p class="card-text"><strong>Emails :</strong>  {{url.emails}}</p>
+
+          <p class="card-text"><strong>Alexa Index Rank :</strong>  {{url.rank}}</p>
+
+          <p class="card-text"><strong>Website Age :</strong>  {{url.domage}}</p>
+
+          <p class="card-text"><strong>Abnormal URL Status :</strong>  {{url.varab}}</p>
+
+          <p class="card-text"><strong>Redirects Status :</strong>  {{url.redir}}</p>
+
+          <p class="card-text"><strong>Registrar :</strong>  {{url.registrar}}</p>
+
+          <p class="card-text"><strong>Status @ :</strong>  {{url.var3}}</p>
+
+          <p class="card-text"><strong>Status Prefix-Suffix :</strong>  {{url.var5}}</p>
+
+          <p class="card-text"><strong>Detected IP Address :</strong>  {{url.ipadd}}</p>
+
+          <p class="card-text"><strong>City detected from IP Address :</strong>  {{url.ipcity}}</p>
+
+          <p class="card-text"><strong>State detected from IP Address :</strong>  {{url.ipstate}}</p>
+
+          <p class="card-text"><strong>Country detected from IP Address :</strong>  {{url.ipcountry}}</p>
+
+          <p class="card-text"><strong>Latitude detected from IP Address :</strong>  {{url.iplatitude}}</p>
+
+          <p class="card-text"><strong>Longitude detected from IP Address :</strong>  {{url.iplongitude}}</p>
+
+
+
+          <p class="card-text"><strong>Created at :</strong>  {{url.created_at}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container-fluid">
+    <!-- Footer -->
+    <footer class="page-footer font-small blue fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3"
+        style="background: black;color: white;font-weight:bold;font-size:0.5rem;">
+        <span>© 2020 Copyright: <a href="https://abhisheksportfolio.herokuapp.com/">Abhishek Saxena&nbsp;&nbsp;
+          <a class="ins-ic" href="https://github.com/abhisheksaxena1998"><i class="fab fa-github  fa-3x"></i></a></span>
+          
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- JQuery -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+  
+</body>
+
+</html>
